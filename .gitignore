@@ -1,0 +1,12 @@
+data/raw/
+data/processed/
+models/
+.venv/
+.env
+.env.*
+__pycache__/
+.DS_Store
+*.zip
+*.db
+*.parquet
+
