@@ -1,3 +1,13 @@
+## Data Drift Monitoring
+
+The initial drift analysis compares 21 sensor features
+across 17 held-out telemetry files, producing 357
+standardized mean-shift comparisons.
+
+![Data Drift Heatmap](docs/drift/data_drift_heatmap.png)
+
+Distribution shifts indicate changes in operating
+conditions and do not necessarily represent mechanical faults.
 # RoboOps Intelligence Lab
 
 An Industrial AI research and engineering project for condition monitoring of industrial robotic arms using real-world telemetry, time-series machine learning, and resource-aware model evaluation.
