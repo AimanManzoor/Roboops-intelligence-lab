@@ -1,13 +1,3 @@
-## Data Drift Monitoring
-
-The initial drift analysis compares 21 sensor features
-across 17 held-out telemetry files, producing 357
-standardized mean-shift comparisons.
-
-![Data Drift Heatmap](docs/drift/data_drift_heatmap.png)
-
-Distribution shifts indicate changes in operating
-conditions and do not necessarily represent mechanical faults.
 # RoboOps Intelligence Lab
 
 An Industrial AI research and engineering project for condition monitoring of industrial robotic arms using real-world telemetry, time-series machine learning, and resource-aware model evaluation.
@@ -39,6 +29,9 @@ flowchart TD
     E --> F[Evaluation harness]
     F --> G[Stability and cost benchmarks]
     G --> H[Benchmark visualizations]
+    A --> L[Held-out telemetry profiling]
+    L --> M[Distribution drift analysis]
+    M --> N[Drift heatmap]
     G -.-> I[Model selection - planned]
     I -.-> J[Dashboard and engineer review - planned]
 ```
@@ -108,6 +101,17 @@ Four Isolation Forest configurations (25, 50, 100 and 200 trees) are evaluated a
 
 These experiments measure computational efficiency and reproducibility, not ground-truth detection accuracy. The results are specific to the initial sample and local execution environment.
 
+## Data Drift Monitoring
+
+The initial drift analysis compares 21 sensor features
+across 17 held-out telemetry files, producing 357
+standardized mean-shift comparisons.
+
+![Data Drift Heatmap](docs/drift/data_drift_heatmap.png)
+
+Distribution shifts indicate changes in operating
+conditions and do not necessarily represent mechanical faults.
+
 ## Reproduce the Experiments
 
 Install the dependencies in a Python virtual environment:
@@ -127,6 +131,9 @@ python src/anomaly_detector.py
 python src/evaluation_harness.py
 python src/model_stability.py
 python src/visualize_benchmarks.py
+python src/test_data_profiler.py
+python src/data_drift.py
+python src/visualize_drift.py
 ```
 
 ## Development Roadmap
@@ -136,6 +143,7 @@ python src/visualize_benchmarks.py
 - [x] Isolation Forest baseline
 - [x] Computational benchmarking and stability experiments
 - [x] EDA and benchmark visualizations
+- [x] Held-out telemetry profiling and descriptive drift visualization
 - [ ] Validate held-out dataset documentation and ground-truth availability
 - [ ] Automated data-quality and model regression checks
 - [ ] Resource-aware model selection with independent evaluation
