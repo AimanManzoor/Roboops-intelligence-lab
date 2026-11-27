@@ -1,3 +1,36 @@
+## System Architecture
+
+```mermaid
+flowchart TD
+    A[Industrial Robot Telemetry] --> B[Data Profiling]
+    B --> C[Validated Data Ingestion]
+    C --> D[Parquet Storage]
+    D --> E[Time-Series Feature Engineering]
+    E --> F[Isolation Forest]
+    F --> G[Evaluation Harness]
+    G --> H[Stability and Cost Benchmarking]
+    H --> I[Model Selection]
+    I --> J[Diagnostic Dashboard]
+    J --> K[Engineer Review]
+```
+
+## Model Reliability and Cost Optimization
+
+Four Isolation Forest configurations are evaluated across
+three random seeds to benchmark model stability,
+training time, inference latency and model size.
+
+### Model Performance Benchmark
+
+![Model Benchmark](docs/benchmarks/model_benchmark.png)
+
+### Cost-Stability Trade-off
+
+![Cost Stability](docs/benchmarks/cost_stability_tradeoff.png)
+
+Model selection considers computational efficiency
+and experimental reproducibility. Detection accuracy
+requires independent ground-truth validation.
 ## Exploratory Data Analysis & Findings
 
 The initial analysis examined 10,000 timestamped telemetry
